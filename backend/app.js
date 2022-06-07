@@ -1,6 +1,7 @@
 // Importations
 const express = require('express');
 const mongoose = require('mongoose');
+// déclaration et importation des routes
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
 

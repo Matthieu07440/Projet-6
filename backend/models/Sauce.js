@@ -1,5 +1,6 @@
+// importation du module mongoose
 const mongoose = require("mongoose");
-
+// on crée un schema de données qui contient les champs souhaités pour chaque Sauce en utilisant la méthode schéma de Mongoose
 const sauceSchema = mongoose.Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },
@@ -13,5 +14,5 @@ const sauceSchema = mongoose.Schema({
   usersLiked: { type: [String], required: true },
   usersDisliked: { type: [String], required: true },
 });
-
+// on exporte ce schéma en tant que modèle mongoose
 module.exports = mongoose.model('sauces', sauceSchema);

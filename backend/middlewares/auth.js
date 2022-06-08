@@ -1,4 +1,3 @@
-
 // Déclaration et importation du package NPM jsonwebtoken   
 const jwt = require('jsonwebtoken');
 //importation pour utilisation des variables d'environnements

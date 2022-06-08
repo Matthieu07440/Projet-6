@@ -1,6 +1,6 @@
+// importation schéma mongoose
 const Sauce = require("../models/Sauce");
 
-//*****************Logique Métier************** *
 
 exports.likeSauce = (req, res, next) => {
 
@@ -55,7 +55,6 @@ exports.likeSauce = (req, res, next) => {
         req.body.like == -1
       ) {
         // l'userId n'est pas dans le tableau [usersDisliked] de BDD et la requête like = -1
-
         console.log("ok dislike +1");
 
         // Mise à jour de l'objet sauce dans BDD

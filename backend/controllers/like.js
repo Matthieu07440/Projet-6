@@ -3,16 +3,13 @@ const Sauce = require("../models/Sauce");
 //*****************Logique Métier************** *
 
 exports.likeSauce = (req, res, next) => {
-  //contenu de la requête like dislike envoyé par le navigateur
-  const sauceLikeObject = req.body;
 
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
+      
       //like = +1 (like +1 l'utilisateur ajoute un like)
-
       if (!sauce.usersLiked.includes(req.body.userId) && req.body.like == 1) {
         // l'userId n'est pas dans le tableau [usersLiked] de BDD et la requête like = +1
-
         console.log("ok like +1");
 
         // Mise à jour de l'objet sauce dans BDD

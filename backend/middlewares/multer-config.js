@@ -19,5 +19,5 @@ const storage = multer.diskStorage({
   }
 });
 // on exporte l'élément multer configuré et on lui passe notre constante storage
-// LA méthode single()  crée un middleware qui capture les fichiers d'un certain type (passé en argument), et les enregistre au système de fichiers du serveur à l'aide du storage configuré
+// LA méthode single() crée un middleware qui capture les fichiers et les enregistre au système de fichiers du serveur à l'aide du storage configuré
 module.exports = multer({storage: storage}).single('image');

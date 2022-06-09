@@ -6,7 +6,7 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 // Déclaration et importation du middleware multer-config qui permet ici l'upload de fichiers images dans le dossier /images
 const multer = require('../middlewares/multer-config');
-// Déclaration et importation du controller sauceControllers et sa logique métier
+// controller pour associer les fonctions aux différentes routes
 const sauceControl = require('../controllers/sauces');
 // Déclaration et importation du controller like et sa logique métier
 const likeCtrl = require("../controllers/like");

@@ -6,8 +6,10 @@ dotenv.config();
 // Middleware d'authentification
 module.exports = (req, res, next) => {
   try {
+    //fonction split pour récupérer tout après l'espace dans le header. Les erreurs générées ici s'afficheront dans le bloc catch
     const token = req.headers.authorization.split(' ')[1];
     console.log(token);
+    //La méthode verify() de jsonwebtoken permet de vérifier la validité d'un token
     const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
     console.log(decodedToken);
     const userId = decodedToken.userId;

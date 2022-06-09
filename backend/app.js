@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   next();
 }); 
 
-// express prend toutes les requêtes qui ont comme content-type application/json et met à disposition leur body  directement sur l'objet req
+// express prend toutes les requêtes qui ont comme content-type application/json et met à disposition leur body directement sur l'objet req
 app.use(express.json());
 
 //protection injection sql qui remplace les caractères interdits "$" et "." par _
@@ -46,9 +46,9 @@ app.use(
   })
 ); 
 
-//Route générale "./routes/userRoute" pour l'authentification et création utilisateur
+//Route générale pour l'authentification et création utilisateur
 app.use('/api/auth', userRoutes);
-//Route générale "./routes/sauceRoute.js" pour la création, la modification et suppression des sauces
+//Route générale pour la création, la modification et suppression des sauces
 app.use('/api/sauces', saucesRoutes);
 // Gestion static qui permet les requêtes des images du répertoire /images indiqué au module Path
 app.use('/images', express.static(path.join(__dirname, 'images')));

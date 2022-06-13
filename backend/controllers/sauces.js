@@ -8,6 +8,7 @@ exports.createSauce =(req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
   const sauce = new Sauce({
+    //L'opérateur spread ... est utilisé pour faire une copie de tous les éléments de sauceObject
     ...sauceObject,
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     likes: 0,
@@ -25,7 +26,8 @@ exports.createSauce =(req, res, next) => {
 // Modification d'une sauce
 exports.modifySauce =(req, res, next) => {
     // récupérer le nom du fichier
-    Sauce.findOne({ _id: req.params.id }).then(
+    Sauce.findOne({ _id: req.params.id })
+      .then(
       (sauce) => {
         //si la sauce n'appartient pas à l'user connecté
         if (sauce.userId !== req.auth.userId) {
@@ -57,6 +59,12 @@ exports.deleteSauce = (req, res, next) => {
   // nous utilisons l'ID que nous recevons en paramètres pour accéder à la Sauce correspondant dans la BDD
   Sauce.findOne({ _id: req.params.id }) 
     .then((sauce) => {
+      //si la sauce n'appartient pas à l'user connecté
+      if (sauce.userId !== req.auth.userId) {
+        res.status(400).json({
+          error: new Error('Requête non autorisée!')
+        });
+      }
       // On récupère avec la méthode split le nom ficher image dans l'URL
       const filename = sauce.imageUrl.split("/images/")[1]; 
       fs.unlink(`images/${filename}`, () => {

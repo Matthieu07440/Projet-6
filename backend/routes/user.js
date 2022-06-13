@@ -1,6 +1,6 @@
 //importation d'express
 const express = require('express');
-// La méthode express.Router() permet de créer des routeurs séparés pour chaque route principale de l' application – on y enregistrez ensuite les routes individuelles.
+// La méthode express.Router() permet de créer des routeurs séparés.
 const router = express.Router();
 
 // controller pour associer les fonctions aux différentes routes

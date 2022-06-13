@@ -22,7 +22,7 @@ mongoose.connect(process.env.SECRET_DB,
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-//on appelle express avec cette const, ce qui permet de créer l'application express
+//on appelle express avec cette const, pour créer l'application express
 const app = express();
 // log des requests et des responses
 app.use(morgan("dev"));
